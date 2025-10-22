@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const agentAssignmentController = require('../controller/AgentAssignmentController');
+const agentAssignmentController = require('../controller/agentAssignmentController');
 const { assignAgent, updateAssignmentStatus, getAgentAssignments, getAllAssignments } = agentAssignmentController;
 const { protect, authorizeRoles } = require('../middleware/authMiddleware');
 

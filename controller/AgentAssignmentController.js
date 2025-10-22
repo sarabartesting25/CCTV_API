@@ -1,4 +1,4 @@
-const AgentAssignment = require('../models/AgentAssignmentModel');
+const AgentAssignment = require('../models/agentAssignmentModel');
 
 // Assign an agent to a service request
 exports.assignAgent = async (req, res) => {

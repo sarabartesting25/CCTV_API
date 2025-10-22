@@ -1,4 +1,4 @@
-const ServiceRequest = require('../models/ServiceRequestModel');
+const ServiceRequest = require('../models/serviceRequestModel');
 const cloudinary = require('../config/cloudinaryConfig');
 
 // Create a new service request
