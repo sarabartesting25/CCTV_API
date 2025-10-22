@@ -73,7 +73,8 @@ exports.sendOtp = async (req, res) => {
         // send otp to SMS api
         // await sendOtpSms(mobile, otp);
         console.log(`OTP for ${mobile}: ${otp}`);
-        res.status(200).json({ message: 'OTP sent successfully' });
+        // respond success with OTP (for testing purposes)
+        res.status(200).json({ message: 'OTP sent successfully', otp });
     } catch (error) {
         res.status(500).json({ message: 'Server error', error: error.message });
     }
