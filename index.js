@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 const express = require('express');
 const { sequelize }  = require('./config/postgresDBConfig');
 const connectPostgresDB = require('./config/postgresDBConfig');
+const cors = require('cors');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -14,6 +15,9 @@ const app = express();
 
 // Middleware to parse JSON requests
 app.use(express.json());
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Middleware to parse URL-encoded requests
 app.use(express.urlencoded({ extended: true }));
