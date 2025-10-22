@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/postgresDBConfig');
 const Agent = require('./agentModel');
-const ServiceRequest = require('./ServiceRequestModel');
+const ServiceRequest = require('./serviceRequestModel');
 
 const AgentAssignment = sequelize.define('AgentAssignment', {
     id: {
