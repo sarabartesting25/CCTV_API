@@ -25,7 +25,8 @@ exports.createServiceRequest = async (req, res) => {
 // update the status of a service request
 exports.updateRequestStatus = async (req, res) => {
     try {
-        const { requestId, status } = req.body;
+        const { id: requestId } = req.params;
+        const  status = req.body;
         const request = await ServiceRequest.findByPk(requestId);
         if (!request) {
             return res.status(404).json({ message: 'Service request not found' });

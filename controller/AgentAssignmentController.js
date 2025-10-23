@@ -14,7 +14,8 @@ exports.assignAgent = async (req, res) => {
 // Update the status of an agent assignment
 exports.updateAssignmentStatus = async (req, res) => {
     try {
-        const { assignmentId, status, rejectReason, rejectDescription, rescheduleDateAndTime } = req.body;
+        const { id: assignmentId } = req.params;
+        const { status, rejectReason, rejectDescription, rescheduleDateAndTime } = req.body;
         const assignment = await AgentAssignment.findByPk(assignmentId);
         if (!assignment) {
             return res.status(404).json({ message: 'Agent assignment not found' });

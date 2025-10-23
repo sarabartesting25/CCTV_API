@@ -5,7 +5,7 @@ const { assignAgent, updateAssignmentStatus, getAgentAssignments, getAllAssignme
 const { protect, authorizeRoles } = require('../middleware/authMiddleware');
 
 router.post('/assignAgent', protect, authorizeRoles('admin'), assignAgent);
-router.put('/updateStatus', protect, authorizeRoles('admin'), updateAssignmentStatus);
+router.put('/updateStatus/:id', protect, authorizeRoles('admin'), updateAssignmentStatus);
 router.get('/getByAgentId/:agentId', protect, getAgentAssignments);
 router.get('/getAllAssignments', protect, authorizeRoles('admin'), getAllAssignments);
 

@@ -40,6 +40,7 @@ app.use('/api/agentAssignment', agentAssignmentRoutes);
 // start the server
 const PORT = process.env.PORT;
 
+// Test route
 app.get("/", (req, res) => {
   res.send("API is live!");
 });
