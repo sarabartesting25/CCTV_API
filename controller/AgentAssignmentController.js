@@ -4,7 +4,7 @@ const ServiceRequest = require('../models/serviceRequestModel');
 // Assign an agent to a service request
 exports.assignAgent = async (req, res) => {
     try {
-        const { requestId, agentId } = req.body;
+        const { requestId, agentId } = req.params;
         const newAssignment = await AgentAssignment.create({ requestId, agentId });
         res.status(201).json(newAssignment);
     } catch (error) {

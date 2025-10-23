@@ -4,7 +4,8 @@ const cloudinary = require('../config/cloudinaryConfig');
 // Create a new service request
 exports.createServiceRequest = async (req, res) => {
     try {
-        const { customerId, serviceType, description, alternativeMobile, location, scheduledDateAndTime } = req.body;
+        const { customerId } = req.params;
+        const { serviceType, description, alternativeMobile, location, scheduledDateAndTime } = req.body;
         const photos = [];
         if (req.files && req.files.length > 0) {
             for (const file of req.files) {
