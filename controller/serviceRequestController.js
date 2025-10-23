@@ -26,13 +26,13 @@ exports.createServiceRequest = async (req, res) => {
 exports.updateRequestStatus = async (req, res) => {
     try {
         const { id: requestId } = req.params;
-        const  status = req.body;
+        const { status } = req.body;
         const request = await ServiceRequest.findByPk(requestId);
         if (!request) {
             return res.status(404).json({ message: 'Service request not found' });
         }
         request.status = status;
-        if (status === 'Completed') {
+        if (status === 'completed') {
             request.completionDateAndTime = new Date();
         }
         await request.save();
