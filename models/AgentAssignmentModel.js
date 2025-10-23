@@ -30,7 +30,7 @@ const AgentAssignment = sequelize.define('AgentAssignment', {
     },
     rejectDescription: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
     },
     rescheduleDateAndTime: {
         type: DataTypes.DATE,
