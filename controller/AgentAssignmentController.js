@@ -1,4 +1,5 @@
 const AgentAssignment = require('../models/AgentAssignmentModel');
+const ServiceRequest = require('../models/serviceRequestModel');
 
 // Assign an agent to a service request
 exports.assignAgent = async (req, res) => {
@@ -21,6 +22,15 @@ exports.updateAssignmentStatus = async (req, res) => {
             return res.status(404).json({ message: 'Agent assignment not found' });
         }
         assignment.status = status;
+        // if accepted update service request status as in progress
+        if (status === 'accepted') {
+            const request = await ServiceRequest.findByPk(assignment.requestId);
+            if (request) {
+                request.status = 'in progress';
+                await request.save();
+            }
+        }
+        // Handle rejection details
         if (status === 'rejected') {
             assignment.rejectReason = rejectReason;
             assignment.rejectDescription = rejectDescription;
